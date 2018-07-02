@@ -7,17 +7,9 @@ import (
 	"fmt"
 	"github.com/lfuture/easygin/pkg/database/mysql"
 	"github.com/lfuture/easygin/pkg/database/redis"
+	"github.com/lfuture/easygin/app/models"
 )
 
-type User struct {
-	ID int `gorm:"column:id"`
-	Mapkey string
-	Mapvalue string
-}
-
-func (User) TableName() string {
-	return "my_password"
-}
 
 func main() {
 	//gin.Default()
@@ -36,16 +28,11 @@ func main() {
 
 	mysql.Bootstrap()
 
-	// mysql test
-	var user = new(User)
-	mysql.DB.First(user, 6)
-
-	fmt.Println(user.ID)
-	fmt.Println(user.Mapkey)
-	fmt.Println(user.Mapvalue)
 
 	redis.Bootstrap()
 
 	result := redis.RedisClient.Get("liu")
 	println(result.Val())
+
+	models.AddUser("shuai", "liu")
 }

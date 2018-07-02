@@ -6,10 +6,18 @@ import (
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 	"fmt"
 	"github.com/go-ini/ini"
+	"time"
 )
 
 
 var DB *gorm.DB
+
+type Model struct {
+	ID        uint `gorm:"primary_key"`
+	CreatedAt time.Time `sql:"default:CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"`
+	UpdatedAt time.Time `sql:"default:CURRENT_TIMESTAMP"`
+}
+
 
 func Bootstrap()  {
 	mysqlConfig, err := app.GetConfig().GetSection("mysql")
