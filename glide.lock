@@ -1,0 +1,68 @@
+hash: 31d132351bd9b1c1c7f814d6042747385aa1c9601c9659c95e918d799634e67b
+updated: 2018-07-02T19:41:50.155541+08:00
+imports:
+- name: github.com/gin-contrib/sse
+  version: 22d885f9ecc78bf4ee5d72b937e4bbcdc58e8cae
+- name: github.com/gin-gonic/gin
+  version: 1c4cbfae59e0f62a6812b7808839eed45b66515f
+  subpackages:
+  - binding
+  - json
+  - render
+- name: github.com/go-ini/ini
+  version: 06f5f3d67269ccec1fe5fe4134ba6e982984f7f5
+- name: github.com/go-redis/redis
+  version: 83fb42932f6145ce52df09860384a4653d2d332a
+  subpackages:
+  - internal
+  - internal/consistenthash
+  - internal/hashtag
+  - internal/pool
+  - internal/proto
+  - internal/singleflight
+  - internal/util
+- name: github.com/go-sql-driver/mysql
+  version: 749ddf1598b47e3cd909414bda735fe790ef3d30
+- name: github.com/golang/protobuf
+  version: 9eb2c01ac278a5d89ce4b2be68fe4500955d8179
+  subpackages:
+  - proto
+- name: github.com/jessevdk/go-assets
+  version: 4f4301a06e153ff90e17793577ab6bf79f8dc5c5
+- name: github.com/jessevdk/go-assets-builder
+  version: b8483521738fd2198ecfc378067a4e8a6079f8e5
+- name: github.com/jinzhu/gorm
+  version: 6ed508ec6a4ecb3531899a69cbc746ccf65a4166
+  subpackages:
+  - dialects/mysql
+- name: github.com/jinzhu/inflection
+  version: 04140366298a54a039076d798123ffa108fff46c
+- name: github.com/json-iterator/go
+  version: ab8a2e0c74be9d3be70b3184d9acc634935ded82
+- name: github.com/mattn/go-isatty
+  version: 6ca4dbf54d38eea1a992b3c722a76a5d1c4cb25c
+- name: github.com/modern-go/concurrent
+  version: bacd9c7ef1dd9b15be4a9909b8ac7a4e313eec94
+- name: github.com/modern-go/reflect2
+  version: 4b7aa43c6742a2c18fdef89dd197aaae7dac7ccd
+- name: github.com/spf13/pflag
+  version: 3ebe029320b2676d667ae88da602a5f854788a8a
+- name: github.com/ugorji/go
+  version: 7d51bbe6161dcb8f32a1252c27668ce36e3ef16b
+  subpackages:
+  - codec
+- name: github.com/Unknwon/goconfig
+  version: ef1e4c783f8f0478bd8bff0edb3dd0bade552599
+- name: golang.org/x/sys
+  version: 7138fd3d9dc8335c567ca206f4333fb75eb05d56
+  subpackages:
+  - unix
+- name: google.golang.org/appengine
+  version: b1f26356af11148e710935ed1ac8a7f5702c7612
+  subpackages:
+  - cloudsql
+- name: gopkg.in/go-playground/validator.v8
+  version: 5f1438d3fca68893a817e4a66806cea46a9e4ebf
+- name: gopkg.in/yaml.v2
+  version: 5420a8b6744d3b0345ab293f6fcba19c978f1183
+testImports: []
