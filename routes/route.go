@@ -8,5 +8,6 @@ func InitRoute() *gin.Engine {
 	route := gin.Default()
 
 	initWebRoute(route)
+	initStaticRoute(route)
 	return route
 }

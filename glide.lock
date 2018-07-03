@@ -1,8 +1,12 @@
-hash: 31d132351bd9b1c1c7f814d6042747385aa1c9601c9659c95e918d799634e67b
-updated: 2018-07-02T19:41:50.155541+08:00
+hash: 6a722231d376de645028c0ff093d7c5849ce371be16abe24c05fbe0f6ebbb9af
+updated: 2018-07-03T14:01:31.078099+08:00
 imports:
 - name: github.com/gin-contrib/sse
   version: 22d885f9ecc78bf4ee5d72b937e4bbcdc58e8cae
+- name: github.com/gin-gonic/contrib
+  version: 39cfb9727134fef3120d2458fce5fab14265a46c
+  subpackages:
+  - static
 - name: github.com/gin-gonic/gin
   version: 1c4cbfae59e0f62a6812b7808839eed45b66515f
   subpackages:
@@ -51,8 +55,6 @@ imports:
   version: 7d51bbe6161dcb8f32a1252c27668ce36e3ef16b
   subpackages:
   - codec
-- name: github.com/Unknwon/goconfig
-  version: ef1e4c783f8f0478bd8bff0edb3dd0bade552599
 - name: golang.org/x/sys
   version: 7138fd3d9dc8335c567ca206f4333fb75eb05d56
   subpackages:

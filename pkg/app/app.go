@@ -3,6 +3,8 @@ package app
 import (
 	"github.com/go-ini/ini"
 	"github.com/lfuture/easygin/pkg/config"
+	"github.com/lfuture/easygin/routes"
+	"github.com/gin-gonic/gin"
 )
 
 type App struct {
@@ -13,11 +15,13 @@ type App struct {
 
 var app = &App{}
 
-func Bootstrap(env string)  {
+func Bootstrap(env string) *gin.Engine {
 	app.env = env
 
 	app.Config = config.DefaultConfig().Bootstrap(env)
 
+	server := routes.InitRoute()
+	return server
 }
 
 func GetConfig() *ini.File {

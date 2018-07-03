@@ -20,7 +20,7 @@ func main() {
 		return
 	}
 
-	app.Bootstrap(*env)
+	server := app.Bootstrap(*env)
 
 	// config test
 	fmt.Println(app.GetConfig().Section("").Key("name"))
@@ -35,4 +35,6 @@ func main() {
 	println(result.Val())
 
 	models.AddUser("shuai", "liu")
+
+	server.Run(":8002")
 }

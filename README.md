@@ -1,3 +1,7 @@
+## 静态文件 ==> go
+```
+go-assets-builder resources/static -o resources/static.go -p resources -v StaticAsserts
+```
 ## 构建
 ```
 go build -o server main.go
