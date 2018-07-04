@@ -1,14 +1,12 @@
-hash: 6a722231d376de645028c0ff093d7c5849ce371be16abe24c05fbe0f6ebbb9af
-updated: 2018-07-03T14:01:31.078099+08:00
+hash: 2771d8c6f4a5096540b73ed588d4938c74a20decd7d1d8974079f7203d7703d7
+updated: 2018-07-04T19:00:34.600589+08:00
 imports:
 - name: github.com/gin-contrib/sse
   version: 22d885f9ecc78bf4ee5d72b937e4bbcdc58e8cae
 - name: github.com/gin-gonic/contrib
   version: 39cfb9727134fef3120d2458fce5fab14265a46c
-  subpackages:
-  - static
 - name: github.com/gin-gonic/gin
-  version: 1c4cbfae59e0f62a6812b7808839eed45b66515f
+  version: 85221af84cf6ee99dc900bc41912abc09acfc1b5
   subpackages:
   - binding
   - json
@@ -43,22 +41,39 @@ imports:
   version: 04140366298a54a039076d798123ffa108fff46c
 - name: github.com/json-iterator/go
   version: ab8a2e0c74be9d3be70b3184d9acc634935ded82
+- name: github.com/lestrrat-go/file-rotatelogs
+  version: 3b4f34a036f374c18d604e1b8006d9fbb9593c06
+  subpackages:
+  - internal/option
+- name: github.com/lestrrat-go/strftime
+  version: 59966ecb6d84ec0010de6a5b8deae0299ce5b549
 - name: github.com/mattn/go-isatty
   version: 6ca4dbf54d38eea1a992b3c722a76a5d1c4cb25c
 - name: github.com/modern-go/concurrent
   version: bacd9c7ef1dd9b15be4a9909b8ac7a4e313eec94
 - name: github.com/modern-go/reflect2
   version: 4b7aa43c6742a2c18fdef89dd197aaae7dac7ccd
+- name: github.com/pkg/errors
+  version: 816c9085562cd7ee03e7f8188a1cfd942858cded
+- name: github.com/rifflock/lfshook
+  version: bf539943797a1f34c1f502d07de419b5238ae6c6
+- name: github.com/sirupsen/logrus
+  version: c155da19408a8799da419ed3eeb0cb5db0ad5dbc
 - name: github.com/spf13/pflag
   version: 3ebe029320b2676d667ae88da602a5f854788a8a
 - name: github.com/ugorji/go
   version: 7d51bbe6161dcb8f32a1252c27668ce36e3ef16b
   subpackages:
   - codec
+- name: golang.org/x/crypto
+  version: a49355c7e3f8fe157a85be2f77e6e269a0f89602
+  subpackages:
+  - ssh/terminal
 - name: golang.org/x/sys
-  version: 7138fd3d9dc8335c567ca206f4333fb75eb05d56
+  version: 151529c776cdc58ddbe7963ba9af779f3577b419
   subpackages:
   - unix
+  - windows
 - name: google.golang.org/appengine
   version: b1f26356af11148e710935ed1ac8a7f5702c7612
   subpackages:

@@ -12,3 +12,9 @@ import:
 - package: github.com/go-ini/ini
   version: ^1.37.0
 - package: github.com/gin-gonic/contrib
+- package: github.com/lestrrat-go/file-rotatelogs
+  version: ^2.2.0
+- package: github.com/sirupsen/logrus
+  version: ^1.0.5
+- package: github.com/rifflock/lfshook
+  version: ^2.3.0

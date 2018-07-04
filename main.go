@@ -8,12 +8,13 @@ import (
 	"github.com/lfuture/easygin/pkg/database/mysql"
 	"github.com/lfuture/easygin/pkg/database/redis"
 	"github.com/lfuture/easygin/app/models"
+	"github.com/lfuture/easygin/pkg/logging"
 )
 
 
 func main() {
 	//gin.Default()
-	var env *string = pflag.String("env","", "运行环境类型：sandbox or production")
+	var env *string = pflag.String("env","", "运行环境类型：development、sandbox、production")
 	pflag.Parse()
 	if *env != "sandbox" && *env != "production" && *env != "development" {
 		pflag.PrintDefaults()
@@ -36,5 +37,10 @@ func main() {
 
 	models.AddUser("shuai", "liu")
 
-	server.Run(":8002")
+	server.BasePath()
+
+	logging.Bootstrap()
+
+	logging.Log.Error("liushuai~")
+	logging.GetLogger("test").Info("asdfasdfasdfsadfasdf")
 }
