@@ -5,6 +5,9 @@ import (
 	"github.com/lfuture/easygin/pkg/config"
 	"github.com/lfuture/easygin/routes"
 	"github.com/gin-gonic/gin"
+	"github.com/lfuture/easygin/pkg/logging"
+	"io"
+	"os"
 )
 
 type App struct {
@@ -16,9 +19,17 @@ type App struct {
 var app = &App{}
 
 func Bootstrap(env string) *gin.Engine {
+
 	app.env = env
 
 	app.Config = config.DefaultConfig().Bootstrap(env)
+
+	if IsDevelopment() {
+		gin.DefaultWriter = io.MultiWriter(logging.GetRequestLogger(), os.Stdout)
+	} else {
+		gin.SetMode(gin.ReleaseMode)
+		gin.DefaultWriter = logging.GetRequestLogger()
+	}
 
 	server := routes.InitRoute()
 	return server
@@ -30,6 +41,10 @@ func GetConfig() *ini.File {
 
 func Env() string {
 	return app.env
+}
+
+func IsDevelopment() bool {
+	return app.env == "development"
 }
 
 func IsDebug() bool {

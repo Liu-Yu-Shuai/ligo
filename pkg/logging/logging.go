@@ -1,13 +1,13 @@
 package logging
 
 import (
-	"github.com/lfuture/easygin/pkg/app"
 	"github.com/go-ini/ini"
 	"github.com/sirupsen/logrus"
 	"github.com/lestrrat-go/file-rotatelogs"
 	"github.com/rifflock/lfshook"
 	"time"
 	"os"
+	config2 "github.com/lfuture/easygin/pkg/config"
 )
 
 var Log *logrus.Logger
@@ -16,7 +16,7 @@ var moduleLogMap map[string]*logrus.Logger
 
 func Bootstrap()  {
 	Log = logrus.New()
-	loggingConfig := app.GetConfig().Section("logging")
+	loggingConfig := config2.GetConfig().Section("logging")
 
 	initLogging(loggingConfig)
 }
@@ -31,9 +31,9 @@ func initLogging(config *ini.Section)  {
 }
 
 func initFileLogging()  {
-	config := app.GetConfig().Section("logging.file")
+	config := config2.GetConfig().Section("logging.file")
 
-	appName := app.GetConfig().Section("").Key("name").String()
+	appName := config2.GetConfig().Section("").Key("name").String()
 	basePath := config.Key("basePath").String()
 	defaultLog := basePath + "/" + appName + ".log"
 
@@ -92,7 +92,7 @@ func GetLogger(moduleName string) *logrus.Logger {
 
 func rotateWriter(moduleName string) *rotatelogs.RotateLogs {
 
-	config := app.GetConfig().Section("logging.file")
+	config := config2.GetConfig().Section("logging.file")
 
 	basePath := config.Key("basePath").String()
 

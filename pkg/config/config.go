@@ -9,6 +9,7 @@ import (
 	"github.com/go-ini/ini"
 )
 
+var cfg *ini.File
 type Config struct {
 	BasePath string
 	ConfigPath string
@@ -20,11 +21,15 @@ func DefaultConfig() *Config {
 	}
 }
 
+func GetConfig() *ini.File {
+	return cfg
+}
+
 func (config *Config) Bootstrap(env string) *ini.File {
 	configPath := config.BasePath + "/" + env
 	config.ConfigPath = configPath
 
-	cfg := ini.Empty()
+	cfg = ini.Empty()
 
 
 	for name, file := range goconfig.Assets.Files {
@@ -40,6 +45,7 @@ func (config *Config) Bootstrap(env string) *ini.File {
 
 	return cfg
 }
+
 
 func (config *Config) getAllIniFiles() []string {
 	path := config.ConfigPath
