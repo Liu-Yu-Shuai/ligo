@@ -2,12 +2,12 @@ package routes
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/yushuailiu/easygin/resources"
+	"github.com/yushuailiu/easygin/app/http/handlers"
 	"net/http"
 	"strings"
 	"io/ioutil"
 	"html/template"
-	"github.com/lfuture/easygin/resources"
-	"github.com/lfuture/easygin/app/http/handlers"
 )
 
 func loadTemplate() (*template.Template, error) {

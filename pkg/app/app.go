@@ -2,10 +2,10 @@ package app
 
 import (
 	"github.com/go-ini/ini"
-	"github.com/lfuture/easygin/pkg/config"
-	"github.com/lfuture/easygin/routes"
+	"github.com/yushuailiu/easygin/pkg/config"
+	"github.com/yushuailiu/easygin/pkg/logging"
+	"github.com/yushuailiu/easygin/routes"
 	"github.com/gin-gonic/gin"
-	"github.com/lfuture/easygin/pkg/logging"
 	"io"
 	"os"
 )

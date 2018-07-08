@@ -2,9 +2,9 @@ package handlers
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/yushuailiu/easygin/pkg/logging"
+	"github.com/yushuailiu/easygin/pkg/http"
 	"fmt"
-	"github.com/lfuture/easygin/pkg/logging"
-	"github.com/lfuture/easygin/pkg/http"
 )
 
 type User struct {

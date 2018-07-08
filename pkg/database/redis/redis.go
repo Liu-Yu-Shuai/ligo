@@ -2,14 +2,14 @@ package redis
 
 import (
 	"github.com/go-redis/redis"
-	"github.com/lfuture/easygin/pkg/app"
+	"github.com/yushuailiu/easygin/pkg/app"
 )
 
 var (
 	RedisClient *redis.Client
 )
 
-func Bootstrap()  {
+func Bootstrap() {
 
 	redisConfig, err := app.GetConfig().GetSection("redis")
 
@@ -17,10 +17,10 @@ func Bootstrap()  {
 		panic("get redis config fail")
 	}
 
-	db,err := redisConfig.Key("db").Int()
+	db, err := redisConfig.Key("db").Int()
 
-	maxRetry,err1 := redisConfig.Key("maxRetry").Int()
-	poolSize,err2 := redisConfig.Key("poolSize").Int()
+	maxRetry, err1 := redisConfig.Key("maxRetry").Int()
+	poolSize, err2 := redisConfig.Key("poolSize").Int()
 
 	if err != nil || err1 != nil || err2 != nil {
 		panic(err)
@@ -28,10 +28,10 @@ func Bootstrap()  {
 		panic(err2)
 	}
 	RedisClient = redis.NewClient(&redis.Options{
-		Addr:    redisConfig.Key("host").String() + ":" + redisConfig.Key("port").String(),
-		Password: redisConfig.Key("password").String(),
-		DB:       db,
-		PoolSize: poolSize,
-		MaxRetries: maxRetry,
+		Addr:		redisConfig.Key("host").String() + ":" + redisConfig.Key("port").String(),
+		Password:	redisConfig.Key("password").String(),
+		DB:		db,
+		PoolSize:	poolSize,
+		MaxRetries:	maxRetry,
 	})
 }

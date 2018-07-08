@@ -2,7 +2,7 @@ package logging
 
 import (
 	"github.com/lestrrat-go/file-rotatelogs"
-	config2 "github.com/lfuture/easygin/pkg/config"
+	config2 "github.com/yushuailiu/easygin/pkg/config"
 )
 
 func GetRequestLogger() *rotatelogs.RotateLogs {

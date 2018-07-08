@@ -7,21 +7,21 @@ import (
 	"github.com/rifflock/lfshook"
 	"time"
 	"os"
-	config2 "github.com/lfuture/easygin/pkg/config"
+	config2 "github.com/yushuailiu/easygin/pkg/config"
 )
 
 var Log *logrus.Logger
 
 var moduleLogMap map[string]*logrus.Logger
 
-func Bootstrap()  {
+func Bootstrap() {
 	Log = logrus.New()
 	loggingConfig := config2.GetConfig().Section("logging")
 
 	initLogging(loggingConfig)
 }
 
-func initLogging(config *ini.Section)  {
+func initLogging(config *ini.Section) {
 	switch config.Key("channel").String() {
 	case "file":
 		initFileLogging()
@@ -30,7 +30,7 @@ func initLogging(config *ini.Section)  {
 	}
 }
 
-func initFileLogging()  {
+func initFileLogging() {
 	config := config2.GetConfig().Section("logging.file")
 
 	appName := config2.GetConfig().Section("").Key("name").String()
@@ -89,7 +89,6 @@ func GetLogger(moduleName string) *logrus.Logger {
 	return log
 }
 
-
 func rotateWriter(moduleName string) *rotatelogs.RotateLogs {
 
 	config := config2.GetConfig().Section("logging.file")
@@ -98,12 +97,11 @@ func rotateWriter(moduleName string) *rotatelogs.RotateLogs {
 
 	defaultLog := basePath + "/" + moduleName + ".log"
 
-
 	days := config.Key("days").MustInt()
-	writer,_ := rotatelogs.New(
-		basePath + "/" + moduleName + "-%Y-%m-%d.log",
+	writer, _ := rotatelogs.New(
+		basePath+"/"+moduleName+"-%Y-%m-%d.log",
 		rotatelogs.WithLinkName(defaultLog),
-		rotatelogs.WithMaxAge(time.Hour * 24 * time.Duration(days)),
+		rotatelogs.WithMaxAge(time.Hour*24*time.Duration(days)),
 		rotatelogs.WithRotationTime(time.Duration(24)*time.Hour),
 	)
 	return writer

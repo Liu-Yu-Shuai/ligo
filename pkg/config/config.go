@@ -4,15 +4,16 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
-	goconfig "github.com/lfuture/easygin/config"
+	goconfig "github.com/yushuailiu/easygin/config"
 	"io/ioutil"
 	"github.com/go-ini/ini"
 )
 
 var cfg *ini.File
+
 type Config struct {
-	BasePath string
-	ConfigPath string
+	BasePath	string
+	ConfigPath	string
 }
 
 func DefaultConfig() *Config {
@@ -31,7 +32,6 @@ func (config *Config) Bootstrap(env string) *ini.File {
 
 	cfg = ini.Empty()
 
-
 	for name, file := range goconfig.Assets.Files {
 		if file.IsDir() || !strings.HasSuffix(name, ".ini") || !strings.HasPrefix(name, configPath) {
 			continue
@@ -46,7 +46,6 @@ func (config *Config) Bootstrap(env string) *ini.File {
 	return cfg
 }
 
-
 func (config *Config) getAllIniFiles() []string {
 	path := config.ConfigPath
 	paths := make([]string, 0)
@@ -59,4 +58,3 @@ func (config *Config) getAllIniFiles() []string {
 	})
 	return paths
 }
-

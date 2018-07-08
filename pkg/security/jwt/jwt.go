@@ -1,21 +1,20 @@
-// 暂时添加jwt接口，后面可用以api token分配
 package jwt
 
 import (
 	config "github.com/lfuture/easygin/pkg/config"
+	"github.com/yushuailiu/easygin/pkg/config"
 	"time"
 	"crypto/md5"
 	"github.com/dgrijalva/jwt-go"
 )
 
-// 这里的Username Password可以等价为appName appToken，未必用于用户校验。
 type Claims struct {
-	Username string `json:"username"`
-	Password string `json:"password"`
+	Username	string	`json:"username"`
+	Password	string	`json:"password"`
 	jwt.StandardClaims
 }
 
-func getJwtToken() string  {
+func getJwtToken() string {
 	jwtToken := config.GetConfig().Section("security").Key("jwt_token").String()
 
 	return jwtToken
@@ -32,8 +31,8 @@ func GenerateToken(username string, password string) (string, error) {
 		string(usernameMd5[:]),
 		string(passwordMd5[:]),
 		jwt.StandardClaims{
-			ExpiresAt: expirTime.Unix(),
-			Issuer: config.GetConfig().Section("").Key("name").String(),
+			ExpiresAt:	expirTime.Unix(),
+			Issuer:		config.GetConfig().Section("").Key("name").String(),
 		},
 	}
 

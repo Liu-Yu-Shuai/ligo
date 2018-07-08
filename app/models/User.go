@@ -1,15 +1,12 @@
 package models
 
-import (
-	"github.com/lfuture/easygin/pkg/database/mysql"
-)
+import "github.com/yushuailiu/easygin/pkg/database/mysql"
 
 type User struct {
 	mysql.Model
 	FirstName string `gorm:"Column:first_name;varchar(20)"`
 	LastName string `gorm:"Column:last_name;varchar(20)"`
 }
-
 
 func (User) TableName() string {
 	return "user"
