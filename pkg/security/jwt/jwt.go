@@ -1,7 +1,6 @@
 package jwt
 
 import (
-	config "github.com/lfuture/easygin/pkg/config"
 	"github.com/yushuailiu/easygin/pkg/config"
 	"time"
 	"crypto/md5"
